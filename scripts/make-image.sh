@@ -12,7 +12,7 @@ rootfs_dir="${output_dir}/rootfs"
 overlays_dir="${output_dir}/overlays"
 
 
-IMAGE_FILE=giantboard.img
+IMAGE_FILE=jupiter_nano.img
 
 SIZE_IN_MB=$(( $(sudo du ./output/rootfs -s | tr -dc '0-9') / 1000 + 256 ))
 echo "creating $SIZE_IN_MB MB image"
@@ -63,7 +63,7 @@ cp -v ${images_dir}/zImage /media/boot/zImage
 
 # copy kernel dtbs
 mkdir -p /media/boot/dtbs/
-cp -v ${images_dir}/at91-sama5d27_giantboard.dtb /media/boot/dtbs/
+cp -v ${images_dir}/at91-sama5d27_jupiter_nano.dtb /media/boot/dtbs/
 
 # copy kernel modules
 cp -av ${modules_dir}/lib/ /media/rootfs/

@@ -3,7 +3,7 @@
 rfs_username="debian"
 rfs_password="temppwd"
 rfs_fullname="debian"
-rfs_hostname="giantboard"
+rfs_hostname="jupiter_nano"
 
 export LC_ALL=C
 export LANGUAGE=C
@@ -33,7 +33,7 @@ add_user () {
 	chmod 0440 /etc/sudoers.d/admin
 	chmod u+s /bin/ping
 	
-	pass_crypt=$(perl -le "print crypt("${rfs_password}", "groboards")")
+	pass_crypt=$(perl -le "print crypt("${rfs_password}", "password")")
 	useradd -G "${default_groups}" -s /bin/bash -m -p ${pass_crypt} -c "${rfs_fullname}" ${rfs_username}
 	grep ${rfs_username} /etc/passwd
 	mkdir -p /home/${rfs_username}/bin
@@ -70,20 +70,21 @@ echo "Log: (chroot_min) adding ${rfs_username} user"
 add_user
 
 cat > /etc/motd <<'EOF'
-   _____ _             _     ____                      _
-  / ____(_)           | |   |  _ \                    | |
- | |  __ _  __ _ _ __ | |_  | |_) | ___   __ _ _ __ __| |
- | | |_ | |/ _` | '_ \| __| |  _ < / _ \ / _` | '__/ _` |
- | |__| | | (_| | | | | |_  | |_) | (_) | (_| | | | (_| |
-  \_____|_|\__,_|_| |_|\__| |____/ \___/ \__,_|_|  \__,_|
-
+       _             _ _              _   _                   
+      | |           (_) |            | \ | |                  
+      | |_   _ _ __  _| |_ ___ _ __  |  \| | __ _ _ __   ___  
+  _   | | | | | '_ \| | __/ _ \ '__| | . ` |/ _` | '_ \ / _ \ 
+ | |__| | |_| | |_) | | ||  __/ |    | |\  | (_| | | | | (_) |
+  \____/ \__,_| .__/|_|\__\___|_|    |_| \_|\__,_|_| |_|\___/ 
+              | |                                             
+              |_|                                             
 EOF
 
 # Set new hostname
 echo ${rfs_hostname} > /etc/hostname
 
 # Set new hostname in hosts
-sed -i -e 's/localhost/giantboard/g' /etc/hosts
+sed -i -e 's/localhost/jupiter_nano/g' /etc/hosts
 
 apt-get clean
 

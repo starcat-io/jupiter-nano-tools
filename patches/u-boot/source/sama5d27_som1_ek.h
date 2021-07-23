@@ -44,7 +44,7 @@
     "fdtovaddr=0x21800000\0" \
     "loadaddr=0x22000000\0" \
     "fdtaddr=0x21000000\0" \
-    "fdtfile=/dtbs/at91-sama5d27_giantboard.dtb\0" \
+    "fdtfile=/dtbs/at91-sama5d27_jupiter_nano.dtb\0" \
     "enable_uboot_overlays=\0" \
     "dtboverlay=\0" \
     "dtboverlay1=\0" \

@@ -23,7 +23,6 @@ echo "building at91bootstrap"
 
 # copy config
 config_file=sama5d27_jupiter_nano_sd1_uboot_small_defconfig 
-#cp ${patch_dir}/sama5d27_giantboard_sd1_uboot_defconfig ${at91boot_dir}/board/sama5d27_som1_ek/
 #cp ${patch_dir}/sama5d27_jupiter_nano_sd1_uboot_defconfig ${at91boot_dir}/board/sama5d2_lpddr2sip_vb/
 #cp ${patch_dir}/sama5d27_jupiter_nano_sd1_uboot_defconfig ${at91boot_dir}/board/sama5d2_xplained/
 cp ${patch_dir}/${config_file} ${at91boot_dir}/board/sama5d2_lpddr2sip_vb/
