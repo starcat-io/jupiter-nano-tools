@@ -8,7 +8,8 @@ at91boot_bin="${output_dir}/at91bootstrap"
 at91boot_dir="${build_dir}/at91bootstrap"
 
 # specify compiler
-CC="$(pwd)/tools/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-"
+#CC="$(pwd)/tools/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-"
+CC=arm-none-eabi-
 
 echo "making output dir."
 # Make the at91bootstrap output dir
