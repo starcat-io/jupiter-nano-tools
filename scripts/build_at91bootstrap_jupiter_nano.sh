@@ -16,9 +16,10 @@ echo "making output dir."
 # Make the at91bootstrap output dir
 mkdir -p "${at91boot_bin}"
 
-#echo "Downloading the latest at91bootstrap"
-#git -C ${build_dir} clone https://github.com/linux4sam/at91bootstrap
-#git -C ${at91boot_dir} checkout v3.8.13 -b tmp
+echo "Downloading the latest at91bootstrap"
+git -C ${build_dir} clone https://github.com/linux4sam/at91bootstrap
+git -C ${at91boot_dir} checkout v3.8.13 -b tmp
+
 echo "building at91bootstrap"
 
 # copy config

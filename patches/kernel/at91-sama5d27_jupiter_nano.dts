@@ -1,5 +1,5 @@
 /*
- * at91-sama5d27_giantboard.dts - Device Tree file for SAMA5D27 Giant Board
+ * at91-sama5d27_jupiter_nano.dts - Device Tree file for SAMA5D27 Giant Board
  *
  *  Copyright (c) 2017, Microchip Technology Inc.
  *                2016 Nicolas Ferre <nicolas.ferre@atmel.com>
