@@ -89,7 +89,7 @@ echo 0 > "${gadget_dir}/functions/mass_storage.giantboard/stall"
 echo 0 > "${gadget_dir}/functions/mass_storage.giantboard/lun.0/cdrom"
 echo 0 > "${gadget_dir}/functions/mass_storage.giantboard/lun.0/nofua"
 echo 1 > "${gadget_dir}/functions/mass_storage.giantboard/lun.0/removable"
-echo "GiantBoard" > "${gadget_dir}/functions/mass_storage.giantboard/lun.0/inquiry_string"
+echo "Jupiter Nano" > "${gadget_dir}/functions/mass_storage.giantboard/lun.0/inquiry_string"
 
 
 # Setup RNDIS MAC

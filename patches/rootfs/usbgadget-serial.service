@@ -1,5 +1,5 @@
 [Unit]
-Description=GiantBoard USB Gadget
+Description=Jupiter Nano USB Gadget
 Before=network.target
 
 [Service]
