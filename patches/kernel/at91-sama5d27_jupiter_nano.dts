@@ -1,5 +1,5 @@
 /*
- * at91-sama5d27_jupiter_nano.dts - Device Tree file for SAMA5D27 Giant Board
+ * at91-sama5d27_jupiter_nano.dts - Device Tree file for SAMA5D27 Jupiter Nano
  *
  *  Copyright (c) 2017, Microchip Technology Inc.
  *                2016 Nicolas Ferre <nicolas.ferre@atmel.com>
@@ -51,8 +51,8 @@
 #include <dt-bindings/regulator/active-semi,8945a-regulator.h>
 
 / {
-        model = "Starcat Jupiter Nano";
-        compatible = "atmel,sama5d2-xplained", "atmel,sama5d2", "atmel,sama5";
+        model = "Jupiter Nano";
+        compatible = "atmel,sama5d2-xplained", "atmel,sama5d27", "atmel,sama5d2", "atmel,sama5";
 
     chosen {
         stdout-path = "serial0:115200n8";
@@ -94,6 +94,10 @@
                 atmel,use-dma-rx;
                 atmel,use-dma-tx;
                 status = "okay";
+            };
+
+            flx4: flexcom@fc018000 {
+                status = "disabled";
             };
             
             shdwc@f8048010 {

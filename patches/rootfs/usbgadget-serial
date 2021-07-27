@@ -7,8 +7,8 @@ gadget_dir="${gadgetfs}/g1"
 id_vendor="0x1d6b"
 id_product="0x0104"
 serialnumber="0000"
-manufacturer="Groboards"
-product="Giant Board"
+manufacturer="Starcat"
+product="Jupiter Nano"
 
 
 if [ ! -d "${gadgetfs}" ]; then
