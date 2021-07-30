@@ -1,5 +1,5 @@
 #!/bin/bash
-boot_arg=giantboard.disable_charging
+boot_arg=jupiternano.disable_charging
 
 if grep -iq "${boot_arg}=[a-zA-Z0-9]" /proc/cmdline
 then
