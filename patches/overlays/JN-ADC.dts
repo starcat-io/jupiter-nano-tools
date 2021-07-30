@@ -1,7 +1,7 @@
 /dts-v1/;
 /plugin/;
 / {
-    Compatible = "Giant Board";
+    Compatible = "Jupiter Nano";
 
     fragment@0 {
         target = <&adc>;

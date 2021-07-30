@@ -4,13 +4,15 @@
 #include "sama5d2-pinfunc.h"
 
 / {
-    Compatible = "Giant Board";
+    Compatible = "Jupiter Nano";
     
     fragment@0 {
         target = <&pioA>;
         __overlay__ {
             pinctrl_pwm_default: pwm_default {
-                pinmux = <PIN_PB0__PWMH1>;
+                pinmux = <PIN_PB0__PWMH1>,
+                         <PIN_PB5__PWMH2>,
+                         <PIN_PB7__PWMH3>;
                 bias-pull-up;
             };
         };

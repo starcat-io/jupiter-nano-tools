@@ -4,7 +4,7 @@
 #include "sama5d2-pinfunc.h"
 
 / {
-	compatible = "Giant Board";
+	compatible = "Jupiter Nano";
 
 	fragment@0 {
 		target = <&pioA>;
@@ -25,7 +25,7 @@
 			cs-gpios = <&pioA PIN_PB1 0>;
 			status = "okay";
 			tftfeatherwing: tftfeatherwing@0{
-				compatible = "ilitek,ili9341";
+				compatible = "himax,hx8357d";
 				reg = <0>;
 				pinctrl-names = "default";
 				pinctrl-0 = <&tftfeatherwing_pins>;

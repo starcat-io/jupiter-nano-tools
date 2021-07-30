@@ -4,7 +4,7 @@
 #include "sama5d2-pinfunc.h"
 
 / {
-    Compatible = "Giant Board";
+    Compatible = "Jupiter Nano";
 
     fragment@0 {
         target = <&spi0>;

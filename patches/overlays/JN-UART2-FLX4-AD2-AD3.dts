@@ -8,7 +8,7 @@
 #include "dt-bindings/clock/at91.h"
 
 / {
-    Compatible = "Giant Board";
+    Compatible = "Jupiter Nano";
 
     fragment@0 {
         target = <&pioA>;
