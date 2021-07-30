@@ -127,15 +127,19 @@
 
             i2c1: i2c@fc028000 {
                 dmas = <0>, <0>;
-                pinctrl-names = "default";
-                pinctrl-0 = <&pinctrl_i2c1_default>;
-                i2c-sda-hold-time-ns = <350>;
-                status = "okay";
+				pinctrl-names = "default", "gpio";
+				pinctrl-0 = <&pinctrl_i2c1_default>;
+				pinctrl-1 = <&pinctrl_i2c1_gpio>;
+				sda-gpios = <&pioA PIN_PD4 GPIO_ACTIVE_HIGH>;
+				scl-gpios = <&pioA PIN_PD5 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+				i2c-sda-hold-time-ns = <350>;
+				status = "okay";
+
 
                 pmic@5b {
                     compatible = "active-semi,act8945a";
                     reg = <0x5b>;
-                    active-semi,vsel-low;
+                    active-semi,vsel-high;
                     status = "okay";
 
                     regulators {
@@ -284,6 +288,12 @@
                              <PIN_PD5__TWCK1>;
                     bias-disable;
                 };
+
+				pinctrl_i2c1_gpio: i2c1_gpio {
+					pinmux = <PIN_PD4__GPIO>,
+						 <PIN_PD5__GPIO>;
+					bias-disable;
+				};
 
                 pinctrl_led_gpio_default: led_gpio_default {
                     pinmux = <PIN_PA6__GPIO>;
