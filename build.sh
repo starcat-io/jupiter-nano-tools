@@ -3,18 +3,9 @@
 output_dir="$(pwd)/output"
 build_dir="${output_dir}/build"
 
-clear
-echo "Build Options:"
-echo "1: Setup Build Environment.(Run on first setup.)"
-echo "2: Build at91bootstrap"
-echo "3: Build u-boot"
-echo "4: Build kernel/clean"
-echo "5: Rebuild kernel"
-echo "6: Build debian rootfs"
-echo "7: Chroot into rootfs"
-echo "8: Build device overlays"
-echo "9: Make bootable device image"
-	
+option="$1" 
+echo $option
+
 setup_env () {
 	chmod +x scripts/setup_env.sh
 	chmod +x scripts/build_at91bootstrap.sh
@@ -60,6 +51,40 @@ make_image () {
 	scripts/make-image.sh
 }
 
+build () {
+		echo "Setting up build enviroment.."
+		setup_env
+		echo "Setting up at91bootstrap.."
+		build_at91bootstrap
+		echo "Preparing to build u-boot.."
+		build_uboot
+		echo "Preparing to build kernel.."
+		build_kernel
+		echo "Preparing to build rootfs.."
+		build_debianrootfs
+		echo "Preparing to chroot.."
+		chroot_interactive
+		echo "Building overlays.."
+		build_overlays
+		echo "Preparing to make image.."
+		make_image
+}
+
+interactive () {
+
+clear
+echo "Build Options:"
+echo "1: Setup Build Environment.(Run on first setup.)"
+echo "2: Build at91bootstrap"
+echo "3: Build u-boot"
+echo "4: Build kernel/clean"
+echo "5: Rebuild kernel"
+echo "6: Build debian rootfs"
+echo "7: Chroot into rootfs"
+echo "8: Build device overlays"
+echo "9: Make bootable device image"
+echo "q: quit"
+	
 read -p "Enter selection [1-7] > " option
 
 case $option in
@@ -108,7 +133,32 @@ case $option in
 		echo "Preparing to make image.."
 		make_image
 		;;
+	[q,Q]) 
+		echo "Exiting..."
+        exit 0
+        ;;
 	*)
 		echo "No Option Selected, exiting.."
+        exit 0
 		;;
 esac
+}
+
+
+case $option in
+    -i) 
+        interactive
+        ;;
+    -b) 
+        build
+        ;;
+     *)
+		echo "$0 [-i] [-b]"
+        echo
+        echo "-i        interactive build menu"
+        echo "-b        build everything in sequence"
+        echo
+		;;
+esac
+exit 0
+
