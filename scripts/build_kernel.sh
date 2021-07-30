@@ -35,14 +35,14 @@ fi
 # always do a checkout to see if chosen kernel version has changed
 #git -C ${linux_dir} checkout ${release} -b tmp
 
-export KBUILD_BUILD_USER="giantboard"
-export KBUILD_BUILD_HOST="giantboard"
+export KBUILD_BUILD_USER="jupiternano"
+export KBUILD_BUILD_HOST="jupiternano"
 
 echo "applying patches.."
-cp patches/kernel/at91-sama5d27_giantboard.dtsi ${linux_dir}/arch/arm/boot/dts/
-cp patches/kernel/at91-sama5d27_giantboard.dts ${linux_dir}/arch/arm/boot/dts/
-cp patches/kernel/giantboard_defconfig ${linux_dir}/arch/arm/configs
-sed -i '50i at91-sama5d27_giantboard.dtb \\' ${linux_dir}/arch/arm/boot/dts/Makefile
+cp patches/kernel/at91-sama5d27_jupiter_nano.dtsi ${linux_dir}/arch/arm/boot/dts/
+cp patches/kernel/at91-sama5d27_jupiter_nano.dts ${linux_dir}/arch/arm/boot/dts/
+cp patches/kernel/jupiter_nano_defconfig ${linux_dir}/arch/arm/configs
+sed -i '50i at91-sama5d27_jupiter_nano.dtb \\' ${linux_dir}/arch/arm/boot/dts/Makefile
 
 
 # Add wifi driver to source tree
@@ -65,7 +65,7 @@ fi
 
 # only call with defconfig if a config file doesn't exist already
 if [ ! -f "${linux_dir}/.config" ]; then
-	${cross_make} giantboard_defconfig
+	${cross_make} jupiter_nano_defconfig
 fi
 
 ${cross_make} menuconfig
@@ -90,7 +90,7 @@ ls -hal "${images_dir}/modules-${built_version}.tar.gz"
 echo "copying kernel files"
 
 
-# copy the kernel zImage and giantboard dtb to our images directory
+# copy the kernel zImage and jupiter nano dtb to our images directory
 cp ${linux_dir}/arch/arm/boot/zImage ${images_dir}/
-cp ${linux_dir}/arch/arm/boot/dts/at91-sama5d27_giantboard.dtb ${images_dir}/
+cp ${linux_dir}/arch/arm/boot/dts/at91-sama5d27_jupiter_nano.dtb ${images_dir}/
 echo "complete!"
