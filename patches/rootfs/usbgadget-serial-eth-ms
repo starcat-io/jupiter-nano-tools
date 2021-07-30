@@ -80,16 +80,16 @@ echo "CDC 2xACM+Mass Storage+RNDIS" > "${gadget_dir}/configs/c.1/strings/0x409/c
 # Add the functions
 mkdir -p "${gadget_dir}/functions/acm.GS0"
 mkdir -p "${gadget_dir}/functions/rndis.usb0"
-mkdir -p "${gadget_dir}/functions/mass_storage.jupiternano"
+mkdir -p "${gadget_dir}/functions/mass_storage.jupiter_nano"
 
 
 # Setup the LUN for mass storage
-echo "/dev/mmcblk0p1" > "${gadget_dir}/functions/mass_storage.jupiternano/lun.0/file"
-echo 0 > "${gadget_dir}/functions/mass_storage.jupiternano/stall"
-echo 0 > "${gadget_dir}/functions/mass_storage.jupiternano/lun.0/cdrom"
-echo 0 > "${gadget_dir}/functions/mass_storage.jupiternano/lun.0/nofua"
-echo 1 > "${gadget_dir}/functions/mass_storage.jupiternano/lun.0/removable"
-echo "Jupiter Nano" > "${gadget_dir}/functions/mass_storage.jupiternano/lun.0/inquiry_string"
+echo "/dev/mmcblk0p1" > "${gadget_dir}/functions/mass_storage.jupiter_nano/lun.0/file"
+echo 0 > "${gadget_dir}/functions/mass_storage.jupiter_nano/stall"
+echo 0 > "${gadget_dir}/functions/mass_storage.jupiter_nano/lun.0/cdrom"
+echo 0 > "${gadget_dir}/functions/mass_storage.jupiter_nano/lun.0/nofua"
+echo 1 > "${gadget_dir}/functions/mass_storage.jupiter_nano/lun.0/removable"
+echo "Jupiter Nano" > "${gadget_dir}/functions/mass_storage.jupiter_nano/lun.0/inquiry_string"
 
 
 # Setup RNDIS MAC
@@ -103,7 +103,7 @@ echo ${dmac} > "${gadget_dir}/functions/rndis.usb0/dev_addr"
 ln -s "${gadget_dir}/functions/rndis.usb0" "${gadget_dir}/configs/c.1"
 ln -s "${gadget_dir}/configs/c.1" "${gadget_dir}/os_desc"
 ln -s "${gadget_dir}/functions/acm.GS0" "${gadget_dir}/configs/c.1"
-ln -s "${gadget_dir}/functions/mass_storage.jupiternano" "${gadget_dir}/configs/c.1"
+ln -s "${gadget_dir}/functions/mass_storage.jupiter_nano" "${gadget_dir}/configs/c.1"
 
 echo "300000.gadget" > "${gadget_dir}/UDC"
 
