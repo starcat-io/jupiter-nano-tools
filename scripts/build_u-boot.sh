@@ -31,7 +31,10 @@ if [ ! -d "${build_dir}/u-boot" ]; then
 
     cp patches/u-boot/at91-sama5d27_jupiter_nano.dts ${uboot_dir}/arch/arm/dts/
     cp patches/u-boot/sama5d27_jupiter_nano_mmc_defconfig ${uboot_dir}/configs/
+    # for Linux
     patch -d ${uboot_dir} -p1 < patches/u-boot/jupiter-nano-fixes-linux.patch 
+    # for Nuttx
+    #patch -d ${uboot_dir} -p1 < patches/u-boot/jupiter-nano-fixes-nuttx.patch 
 
     echo "patches complete.."
 fi

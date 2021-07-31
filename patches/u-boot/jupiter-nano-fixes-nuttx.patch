@@ -1,9 +1,25 @@
---- a/include/configs/sama5d27_som1_ek.h    2019-07-10 10:51:53.000000000 -0700
-+++ b/include/configs/sama5d27_som1_ek.h    2019-07-11 12:39:12.000000000 -0700
-@@ -37,9 +37,89 @@
- /* u-boot env in sd/mmc card */
- #define CONFIG_ENV_SIZE		0x4000
+diff --git a/arch/arm/dts/Makefile b/arch/arm/dts/Makefile
+index 3941a08cf4..7ea0dffeb5 100644
+--- a/arch/arm/dts/Makefile
++++ b/arch/arm/dts/Makefile
+@@ -1004,7 +1004,8 @@ dtb-$(CONFIG_TARGET_SAMA5D2_PTC_EK) += \
+ 	at91-sama5d2_ptc_ek.dtb
+ 
+ dtb-$(CONFIG_TARGET_SAMA5D2_XPLAINED) += \
+-	at91-sama5d2_xplained.dtb
++	at91-sama5d2_xplained.dtb \
++	at91-sama5d27_jupiter_nano.dtb
+ 
+ dtb-$(CONFIG_TARGET_SAMA5D27_SOM1_EK) += \
+ 	at91-sama5d27_som1_ek.dtb   \
+diff --git a/include/configs/sama5d2_xplained.h b/include/configs/sama5d2_xplained.h
+index 4f5ceca780..c4bc23e4d0 100644
+--- a/include/configs/sama5d2_xplained.h
++++ b/include/configs/sama5d2_xplained.h
+@@ -31,9 +31,90 @@
  /* bootstrap + u-boot + env in sd card */
+ #undef CONFIG_BOOTCOMMAND
+ 
 -#define CONFIG_BOOTCOMMAND	"fatload mmc " CONFIG_ENV_FAT_DEVICE_AND_PART " 0x21000000 at91-sama5d2_xplained.dtb; " \
 -				"fatload mmc " CONFIG_ENV_FAT_DEVICE_AND_PART " 0x22000000 zImage; " \
 -				"bootz 0x22000000 - 0x21000000"
@@ -58,6 +74,12 @@
 +    "go 0x20008040;"
 +
  #endif
++
  
- #ifdef CONFIG_QSPI_BOOT
-
+ #elif CONFIG_SPI_BOOT
+ 
+@@ -71,3 +152,4 @@
+ #endif
+ 
+ #endif
++
