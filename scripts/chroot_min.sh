@@ -1,7 +1,7 @@
 #!/bin/bash -ex
 
 rfs_username="debian"
-rfs_password="temppwd"
+rfs_password="password"
 rfs_fullname="debian"
 rfs_hostname="jupiter_nano"
 
@@ -42,7 +42,7 @@ add_user () {
 	#set root password
 	passwd <<-EOF
 	root
-	root
+    password	
 	EOF
 
 	sed -i -e 's:#EXTRA_GROUPS:EXTRA_GROUPS:g' /etc/adduser.conf
