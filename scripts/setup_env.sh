@@ -21,7 +21,10 @@ debian|ubuntu)
 		libssl-dev debootstrap \
 		qemu-user-static \
 		device-tree-compiler \
-		dosfstools
+		dosfstools \
+		make \
+		gcc-arm-none-eabi \
+		rsync
 	;;
 fedora)
 	sudo dnf install -y \
@@ -32,7 +35,10 @@ fedora)
 		debootstrap \
 		qemu-user-static \
 		dtc \
-		dosfstools
+		dosfstools \
+		make \
+		gcc-arm-none-eabi \
+		rsync
 	;;
 esac
 echo "done.."
