@@ -26,7 +26,6 @@ add_user () {
 	echo "SUBSYSTEM==\"uio\", GROUP=\"users\", MODE=\"0660\"" >> /etc/udev/rules.d/uio.rules
 	default_groups="admin,adm,dialout,gpio,pwm,eqep,i2c,kmem,spi,cdrom,floppy,audio,dip,video,netdev,plugdev,users,systemd-journal"
 
-
 	echo "Log: (chroot) adding admin group to /etc/sudoers.d/admin"
 	echo "Defaults	env_keep += \"NODE_PATH\"" >/etc/sudoers.d/admin
 	echo "%admin ALL=(ALL:ALL) ALL" >>/etc/sudoers.d/admin
@@ -41,8 +40,8 @@ add_user () {
 	
 	#set root password
 	passwd <<-EOF
-	root
-    password	
+	password
+	password
 	EOF
 
 	sed -i -e 's:#EXTRA_GROUPS:EXTRA_GROUPS:g' /etc/adduser.conf
